@@ -2,36 +2,35 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<title>Anno 1800 Produktionsketten Empfehlungstool</title>
+<title>Anno 1800 Bedürfnisrechner</title>
 <script>
-function berechneEmpfehlung() {
-    // Beispiellogik für eine Empfehlung basierend auf der Bewohnerzahl
-    var bewohnerzahl = document.getElementById('bewohnerzahl').value;
-    var empfehlungText = "";
+function berechneBeduerfnisse() {
+    var einwohnerzahl = parseInt(document.getElementById('einwohnerzahl').value, 10);
+    var ergebnisText = "Für " + einwohnerzahl + " Bürger benötigen Sie ungefähr:<br>";
 
-    if(bewohnerzahl < 500) {
-        empfehlungText = "Für eine kleine Bevölkerung: Konzentriere dich auf Brot und Fisch.";
-    } else if(bewohnerzahl >= 500 && bewohnerzahl < 1000) {
-        empfehlungText = "Für eine mittelgroße Bevölkerung: Erweitere auf Bier und Schule.";
-    } else {
-        empfehlungText = "Für eine große Bevölkerung: Baue Stahlproduktion und höhere Bildungseinrichtungen aus.";
-    }
+    // Beispielhafte Berechnungen (Diese Zahlen sind beispielhaft und müssen angepasst werden)
+    var brot = Math.ceil(einwohnerzahl / 100); // 1 Bäckerei pro 100 Einwohner
+    var kleidung = Math.ceil(einwohnerzahl / 150); // 1 Kleidungsfabrik pro 150 Einwohner
+    var bier = Math.ceil(einwohnerzahl / 200); // 1 Brauerei pro 200 Einwohner
 
-    document.getElementById('empfehlung').innerText = empfehlungText;
+    ergebnisText += "- Bäckereien: " + brot + "<br>";
+    ergebnisText += "- Kleidungsfabriken: " + kleidung + "<br>";
+    ergebnisText += "- Brauereien: " + bier;
+
+    document.getElementById('ergebnis').innerHTML = ergebnisText;
 }
 </script>
 </head>
 <body>
 
-<h2>Anno 1800 Produktionsketten Empfehlungstool</h2>
+<h2>Anno 1800 Bedürfnisrechner für Bürger</h2>
 
-<label for="bewohnerzahl">Bewohnerzahl:</label>
-<input type="number" id="bewohnerzahl" name="bewohnerzahl" value="0"><br><br>
+<label for="einwohnerzahl">Anzahl der Bürger:</label>
+<input type="number" id="einwohnerzahl" name="einwohnerzahl" value="1000"><br><br>
 
-<button onclick="berechneEmpfehlung()">Empfehlung berechnen</button>
+<button onclick="berechneBeduerfnisse()">Bedürfnisse berechnen</button>
 
-<h3>Empfehlung:</h3>
-<p id="empfehlung">Bitte geben Sie eine Bewohnerzahl ein und klicken Sie auf Empfehlung berechnen.</p>
+<div id="ergebnis">Bitte geben Sie die Anzahl der Bürger ein und klicken Sie auf Bedürfnisse berechnen.</div>
 
 </body>
 </html>
