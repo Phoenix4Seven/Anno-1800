@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Anno 1800 Produktionsketten Empfehlungstool</title>
+<script>
+function berechneEmpfehlung() {
+    // Beispiellogik für eine Empfehlung basierend auf der Bewohnerzahl
+    var bewohnerzahl = document.getElementById('bewohnerzahl').value;
+    var empfehlungText = "";
+
+    if(bewohnerzahl < 500) {
+        empfehlungText = "Für eine kleine Bevölkerung: Konzentriere dich auf Brot und Fisch.";
+    } else if(bewohnerzahl >= 500 && bewohnerzahl < 1000) {
+        empfehlungText = "Für eine mittelgroße Bevölkerung: Erweitere auf Bier und Schule.";
+    } else {
+        empfehlungText = "Für eine große Bevölkerung: Baue Stahlproduktion und höhere Bildungseinrichtungen aus.";
+    }
+
+    document.getElementById('empfehlung').innerText = empfehlungText;
+}
+</script>
+</head>
+<body>
+
+<h2>Anno 1800 Produktionsketten Empfehlungstool</h2>
+
+<label for="bewohnerzahl">Bewohnerzahl:</label>
+<input type="number" id="bewohnerzahl" name="bewohnerzahl" value="0"><br><br>
+
+<button onclick="berechneEmpfehlung()">Empfehlung berechnen</button>
+
+<h3>Empfehlung:</h3>
+<p id="empfehlung">Bitte geben Sie eine Bewohnerzahl ein und klicken Sie auf Empfehlung berechnen.</p>
+
+</body>
+</html>
